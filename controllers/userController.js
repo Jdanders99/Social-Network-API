@@ -18,4 +18,9 @@ const userController = {
             })
             .catch((err) => res.status(500).json(err));
     },
+    createUser(req, res) {
+        User.create(req.body)
+            .then((data) => res.json(data))
+            .catch((err) => res.status(500).json(err));
+    },
 }
