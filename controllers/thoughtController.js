@@ -32,5 +32,15 @@ const thoughtController = {
                 res.json(data)
             })
             .catch((err) => res.status(500).json(err));
-    }
+    },
+    deleteThought(req, res) {
+        Thought.findOneAndDelete({ _id: req.params.thoughtId })
+            .then((data) => {
+                if (!data) {
+                    res.status(404).json({ message: 'Error - Thought not found' })
+                }
+                res.json(data)
+            })
+            .catch((err) => res.status(500).json(err));
+    },
 };
