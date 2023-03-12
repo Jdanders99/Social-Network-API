@@ -17,5 +17,10 @@ const thoughtController = {
                 res.json(data);
             })
             .catch((err) => res.status(500).json(err));
-    }
+    },
+    createThought(req, res) {
+        Thought.create(req.body)
+            .then((data) => res.json(data))
+            .catch((err) => res.status(500).json(err));
+    },
 };
